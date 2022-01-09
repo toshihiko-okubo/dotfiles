@@ -1,0 +1,9 @@
+.idea
+*.iml
+
+.envrc
+.go-version
+.node-version
+.python-version
+
+node_modules/
