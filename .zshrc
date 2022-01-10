@@ -112,18 +112,26 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-##### alias
-alias ls='ls -alG'
-alias sed='gsed'
-alias gitp='git pull --rebase origin develop'
+############################
+# 分割ファイルの読み込み
+############################
+ZSHHOME="${HOME}/.zsh"
+
+if [ -d $ZSHHOME -a -r $ZSHHOME -a \
+     -x $ZSHHOME ]; then
+    for i in $ZSHHOME/*; do
+        [[ ${i##*/} = *.zsh ]] &&
+            [ \( -f $i -o -h $i \) -a -r $i ] && . $i
+    done
+fi
 
 ##### completion
-fpath=(/usr/local/share/zsh-completions $fpath)
+FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 export PATH=/usr/local/aws/bin:$PATH
-source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
+source /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh
 
 ##### curl
-export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
 ##### direnv
 export EDITOR=/usr/bin/vim
@@ -131,11 +139,7 @@ eval "$(direnv hook bash)"
 eval "$(direnv hook zsh)"
 
 ##### Homebrew
-export PATH="/usr/local/sbin:$PATH"
-
-##### RUBY
-export RBENV_ROOT=/usr/local/var/rbenv
-eval "$(rbenv init -)"
+export PATH="/opt/homebrew/bin:$PATH"
 
 ##### Rust
 export PATH=$HOME/.cargo/bin:$PATH
@@ -162,14 +166,10 @@ if [ -d "${PYENV_ROOT}" ]; then
 fi
 
 ##### OPENSSL
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
 ##### Rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
-##### Java
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 ##### HELM
 export HELM_HOME=$HOME/.helm

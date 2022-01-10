@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -eu
+
+SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
+
+for f in .??*
+do
+  [[ $f == ".bin" ]] && continue
+  [[ $f == ".git" ]] && continue
+  [[ $f == ".DS_Store" ]] && continue
+  [[ $f == ".gitignore" ]] && continue
+  [[ $f == ".idea" ]] && continue
+  [[ $f == "Brewfile" ]] && continue
+  echo "$f"
+  ln -sf $SCRIPT_DIR/$f ~/
+done

@@ -56,10 +56,11 @@
 !/.config/**
 !/.gitignore_global
 !/.gitconfig_shared
+!/.zsh
+!/.zsh/**
 
 !/README.md
 !/LICENSE
+!/deploy
 !.gitignore
 !.gitkeep
-
-!/Brewfile
