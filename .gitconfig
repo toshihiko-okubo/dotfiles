@@ -1,0 +1,23 @@
+[user]
+    name = Toshihiko Okubo
+    email = toshihiko.okubo@datachain.jp
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+[pull]
+    rebase = true
+[ghq]
+    root = ~/git
+[rerere]
+    enabled = true
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[gui]
+	recentrepo = /home/ubuntu/git/datachainlab/goz
+	fontui = -family mincho -size 9 -weight normal -slant roman -underline 0 -overstrike 0

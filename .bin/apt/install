@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+sudo apt update
+sudo apt upgrade
+sudo apt install -y \
+curl \
+git \
+build-essential \
+ca-certificates \
+chrome-gnome-shell \
+gnome-tweaks \
+gnupg \
+lsb-release \
+vim \
+zsh

@@ -3,7 +3,21 @@
 setopt IGNOREEOF
 
 # 日本語を使用
-export LANG=ja_JP.UTF-8
+export LANG=ja_JP.UTF8
+# ヘルプは英語を使用
+export LANGUAGE=en_US.UTF8
+# export LC_CTYPE="en_US.UTF8"
+# export LC_NUMERIC=en_US.UTF8
+# export LC_TIME=en_US.UTF8
+# export LC_COLLATE="en_US.UTF8"
+# export LC_MONETARY=en_US.UTF8
+# export LC_MESSAGES="en_US.UTF8"
+# export LC_PAPER=en_US.UTF8
+# export LC_NAME=en_US.UTF8
+# export LC_ADDRESS=en_US.UTF8
+# export LC_TELEPHONE=en_US.UTF8
+# export LC_MEASUREMENT=en_US.UTF8
+# export LC_IDENTIFICATION=en_US.UTF8
 
 # emacsキーバインド
 bindkey -e
@@ -11,6 +25,8 @@ bindkey -e
 # 補完
 autoload -Uz compinit
 compinit -u
+autoload bashcompinit
+bashcompinit
 
 # 色を使用
 autoload -Uz colors
@@ -112,6 +128,12 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
+##### Homebrew
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
+
+export EDITOR=vim
+
 ############################
 # 分割ファイルの読み込み
 ############################
@@ -124,62 +146,3 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
             [ \( -f $i -o -h $i \) -a -r $i ] && . $i
     done
 fi
-
-##### completion
-FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-export PATH=/usr/local/aws/bin:$PATH
-source /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh
-
-##### curl
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-
-##### direnv
-export EDITOR=/usr/bin/vim
-eval "$(direnv hook bash)"
-eval "$(direnv hook zsh)"
-
-##### Homebrew
-export PATH="/opt/homebrew/bin:$PATH"
-
-##### Rust
-export PATH=$HOME/.cargo/bin:$PATH
-
-##### NODE
-export SLS_DEBUG=true
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-
-##### GO
-export CERT=delve make install
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-
-##### PYTHON
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-#    eval "$(pyenv virtualenv-init -)"
-fi
-
-##### OPENSSL
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-
-##### Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-##### HELM
-export HELM_HOME=$HOME/.helm
-
-##### Peco
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
-

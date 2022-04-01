@@ -10,5 +10,6 @@
 .go-version
 .node-version
 .python-version
+.terraform-version
 
 node_modules/

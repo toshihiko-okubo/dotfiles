@@ -9,3 +9,6 @@ git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 
 # pyenv
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+
+# terraform
+git clone https://github.com/tfutils/tfenv.git ~/.tfenv

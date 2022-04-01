@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+sudo snap install atom --classic
+sudo snap install code --classic
+sudo snap install goland --classic
+sudo snap install notion-snap
+sudo snap install slack
+sudo snap install zoom-client
