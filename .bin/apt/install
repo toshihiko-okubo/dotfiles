@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
-sudo apt update
-sudo apt upgrade
-sudo apt install -y \
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install -y \
 curl \
 git \
 build-essential \
 ca-certificates \
 chrome-gnome-shell \
+font-manager \
 gnome-tweaks \
 gnupg \
 lsb-release \
+manpages-ja \
 vim \
 zsh

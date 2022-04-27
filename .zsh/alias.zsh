@@ -1,3 +1,5 @@
+alias sz='source ~/.zshrc'
+
 alias ls='ls -al --color'
 
 # date
@@ -8,8 +10,8 @@ alias now="date '+%Y%m%d_%H%M%S'"
 alias now_="date '+%Y-%m-%d_%H%M%S'"
 
 # git
-alias gitp='git pull --rebase origin develop'
 alias ghw='gh repo view -w $(ghq list | peco)'
+alias ghcd='cd $(ghq list --full-path | peco)'
 
 # encode64
 encode64(){ echo -n "$1" | base64; }

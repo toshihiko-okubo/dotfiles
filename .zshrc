@@ -3,9 +3,9 @@
 setopt IGNOREEOF
 
 # 日本語を使用
-export LANG=ja_JP.UTF8
+# export LANG=ja_JP.UTF8
 # ヘルプは英語を使用
-export LANGUAGE=en_US.UTF8
+# export LANGUAGE=en_US.UTF8
 # export LC_CTYPE="en_US.UTF8"
 # export LC_NUMERIC=en_US.UTF8
 # export LC_TIME=en_US.UTF8
