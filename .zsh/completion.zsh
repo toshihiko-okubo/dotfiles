@@ -1,2 +1,7 @@
-##### completion
-complete -C '/usr/local/bin/aws_completer' aws
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi

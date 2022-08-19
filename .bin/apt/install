@@ -6,13 +6,16 @@ sudo apt-get upgrade
 sudo apt-get install -y \
 curl \
 git \
+cmake \
 build-essential \
 ca-certificates \
 chrome-gnome-shell \
 font-manager \
 gnome-tweaks \
 gnupg \
+libssl-dev \
 lsb-release \
 manpages-ja \
+sysstat \
 vim \
 zsh

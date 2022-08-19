@@ -22,16 +22,22 @@ then
   fi
 fi
 
-##### pyenv
-if [ -e "$HOME/.pyenv" ]
+##### rust
+if [ -e "$HOME/.cargo" ]
 then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH=${PYENV_ROOT}/bin:$PATH
-  if command -v pyenv 1>/dev/null 2>&1
-  then
-      eval "$(pyenv init --path)"
-  fi
+  source "$HOME/.cargo/env"
 fi
+
+##### pyenv
+#if [ -e "$HOME/.pyenv" ]
+#then
+#  export PYENV_ROOT="$HOME/.pyenv"
+#  export PATH=${PYENV_ROOT}/bin:$PATH
+#  if command -v pyenv 1>/dev/null 2>&1
+#  then
+#      eval "$(pyenv init --path)"
+#  fi
+#fi
 
 ##### terraform
 if [ -e "$HOME/.tfenv" ]

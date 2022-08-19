@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 brew "aws-vault"
+brew "azure-cli"
+brew "cmake"
 brew "curl"
 brew "direnv"
 brew "gh"
