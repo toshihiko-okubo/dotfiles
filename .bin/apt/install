@@ -4,12 +4,14 @@ sudo apt-get update
 sudo apt-get upgrade
 
 sudo apt-get install -y \
+blueman \
 curl \
 git \
 cmake \
 build-essential \
 ca-certificates \
 chrome-gnome-shell \
+fcitx5-mozc \
 font-manager \
 gnome-tweaks \
 gnupg \
@@ -17,5 +19,8 @@ libssl-dev \
 lsb-release \
 manpages-ja \
 sysstat \
+timeshift \
 vim \
-zsh
+zsh \
+gstreamer1.0-plugins-bad \
+pavucontrol

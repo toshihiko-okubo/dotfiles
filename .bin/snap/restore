@@ -2,11 +2,5 @@
 
 sudo snap refresh
 
-sudo snap install atom --classic
-sudo snap install code --classic
-sudo snap install goland --classic
 sudo snap install lxd
 sudo snap install multipass
-sudo snap install notion-snap
-sudo snap install slack
-sudo snap install zoom-client

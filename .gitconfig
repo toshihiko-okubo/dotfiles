@@ -21,3 +21,8 @@
 [gui]
 	recentrepo = /home/ubuntu/git/datachainlab/goz
 	fontui = -family mincho -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

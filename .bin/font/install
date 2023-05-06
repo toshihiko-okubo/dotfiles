@@ -2,7 +2,7 @@
 
 sudo apt-get update
 
-sudo apt-get install \
+sudo apt-get -y install \
 fonts-ipafont \
 fonts-vlgothic \
 
@@ -11,14 +11,10 @@ sudo git clone https://github.com/edihbrandon/RictyDiminished.git /usr/local/sha
 
 # HackGen
 wget -P /tmp https://github.com/yuru7/HackGen/releases/download/v2.6.3/HackGen_v2.6.3.zip
-unzip /tmp/HackGen_v2.6.3.zip
-mv /tmp/HackGen_v2.6.3 /tmp/HackGen
-sudo mv /tmp/HackGen/ /usr/local/share/fonts/
+sudo unzip /tmp/HackGen_v2.6.3.zip -d /usr/local/share/fonts
 rm -rf /tmp/HackGen_v2.6.3.zip
 
 # PlemolJP
 wget -P /tmp https://github.com/yuru7/PlemolJP/releases/download/v1.2.4/PlemolJP_v1.2.4.zip
-unzip /tmp/PlemolJP_v1.2.4.zip
-mv /tmp/PlemolJP_v1.2.4 /tmp/PlemolJP
-sudo mv /tmp/PlemolJP/ /usr/local/share/fonts/
+sudo unzip /tmp/PlemolJP_v1.2.4.zip -d /usr/local/share/fonts
 rm -rf /tmp/PlemolJP_v1.2.4.zip
