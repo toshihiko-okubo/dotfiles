@@ -161,7 +161,7 @@ export PATH="$PATH:$GOPATH/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d "${PYENV_ROOT}" ]; then
     export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
+    eval "$(pyenv init --path)"
 #    eval "$(pyenv virtualenv-init -)"
 fi
 
@@ -169,7 +169,33 @@ fi
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
 ##### Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+source $HOME/.cargo/env
+
+##### K8s
+if command -v kubectl 1>/dev/null 2>&1
+then
+    source <(kubectl completion zsh)
+fi
+
+if command -v kubelogin 1>/dev/null 2>&1
+then
+    source <(kubelogin completion zsh)
+fi
+
+if command -v helm 1>/dev/null 2>&1
+then
+    source <(helm completion zsh)
+fi
+
+if command -v minikube 1>/dev/null 2>&1
+then
+    source <(minikube completion zsh)
+fi
+
+if command -v kind 1>/dev/null 2>&1
+then
+    source <(kind completion zsh)
+fi
 
 ##### HELM
 export HELM_HOME=$HOME/.helm
@@ -183,3 +209,6 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/toshihiko.okubo/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
