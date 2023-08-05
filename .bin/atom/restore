@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
-
-apm install --packages-file $SCRIPT_DIR/plugins.list

@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# kubectl
+# https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl
+sudo apt-get install -y apt-transport-https
+
+curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+sudo apt-get update
+sudo apt-get install -y kubectl
+kubectl version
+
+# helm
+# https://helm.sh/docs/intro/install/
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+
+sudo apt-get update
+sudo apt-get install -y helm
+helm version
+
+# minikube
+# https://minikube.sigs.k8s.io/docs/start/
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+rm -rf minikube-linux-amd64
+minikube version
+
+# kind
+# https://kind.sigs.k8s.io/docs/user/quick-start/#installing-with-a-package-manager
+brew install kind
+kind version
+
+# argocd
+# https://argo-cd.readthedocs.io/en/stable/getting_started/
+brew install argocd
+argocd version --client
+
+# argo
+# https://github.com/argoproj/argo-workflows/releases/tag/v3.4.9
+curl -sLO https://github.com/argoproj/argo-workflows/releases/download/v3.4.9/argo-linux-amd64.gz
+gunzip argo-linux-amd64.gz
+chmod +x argo-linux-amd64
+sudo mv ./argo-linux-amd64 /usr/local/bin/argo
+argo version
