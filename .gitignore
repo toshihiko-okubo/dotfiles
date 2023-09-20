@@ -61,6 +61,7 @@
 
 !/README.md
 !/LICENSE
+!/config
 !/deploy
 !.gitconfig
 !.gitignore

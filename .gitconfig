@@ -18,6 +18,8 @@
     enabled = true
 [url "git@github.com:"]
     insteadOf = https://github.com/
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
 [gui]
 	recentrepo = /home/ubuntu/git/datachainlab/goz
 	fontui = -family mincho -size 9 -weight normal -slant roman -underline 0 -overstrike 0

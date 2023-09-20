@@ -23,4 +23,6 @@ timeshift \
 vim \
 zsh \
 gstreamer1.0-plugins-bad \
-pavucontrol
+pavucontrol \
+wine64 \
+wine32

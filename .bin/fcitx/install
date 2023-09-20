@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+im-config -n fcitx5
+
 echo "GTK_IM_MODULE=fcitx5" | sudo tee -a /etc/environment
 echo "QT_IM_MODULE=fcitx5" | sudo tee -a /etc/environment
 echo "XMODIFIERS=@im=fcitx5" | sudo tee -a /etc/environment
@@ -7,3 +9,7 @@ echo "XMODIFIERS=@im=fcitx5" | sudo tee -a /etc/environment
 SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
 
 cp $SCRIPT_DIR/fcitx5.desktop $HOME/.config/autostart/
+
+# reboot
+# fcitx configuration(GUIアプリ)でInput Methodにmoczを登録
+# Global Options Trigger Input MethodにControl+`を登録

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl -s https://raw.githubusercontent.com/karaage0703/ubuntu-setup/master/install-vscode.sh | /bin/bash
