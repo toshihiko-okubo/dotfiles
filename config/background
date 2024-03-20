@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 gsettings set org.gnome.desktop.background picture-uri ''
 gsettings set org.gnome.desktop.background color-shading-type 'solid'
 gsettings set org.gnome.desktop.background primary-color '#000000'
