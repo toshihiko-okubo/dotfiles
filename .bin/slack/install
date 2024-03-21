@@ -7,4 +7,5 @@ echo "deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main" |
 sudo gpg --keyserver pgpkeys.mit.edu --recv-key C6ABDCF64DB9A0B2
 sudo gpg --export C6ABDCF64DB9A0B2 | sudo tee /etc/apt/trusted.gpg.d/slack.gpg
 
+sudo apt update
 sudo apt install slack-desktop

@@ -147,4 +147,4 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
     done
 fi
 
-export PATH="$PATH:/home/ubuntu/.foundry/bin"
+export PATH="$PATH:$HOME/.foundry/bin"

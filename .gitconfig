@@ -1,6 +1,7 @@
 [user]
     name = Toshihiko Okubo
     email = toshihiko.okubo@datachain.jp
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP9JbUAAJnUlm4g1faY1a731GR0h5zn6OIqvdAZqEzvz
 [color]
     status = auto
     diff = auto
@@ -28,3 +29,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
+[commit]
+	gpgsign = true

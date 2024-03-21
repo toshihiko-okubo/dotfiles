@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eu
+
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -24,5 +26,4 @@ vim \
 zsh \
 gstreamer1.0-plugins-bad \
 pavucontrol \
-wine64 \
-wine32
+terminator
