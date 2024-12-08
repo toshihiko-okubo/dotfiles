@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -eu
+
+rm -rf Simple-NerdFonts-Downloader
+git clone https://github.com/mcarvalho1/Simple-NerdFonts-Downloader.git
+./Simple-NerdFonts-Downloader/nf_downloader.sh

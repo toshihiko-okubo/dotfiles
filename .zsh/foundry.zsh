@@ -1,3 +1,5 @@
+export PATH="$PATH:$HOME/.foundry/bin"
+
 if command -v anvil 1>/dev/null 2>&1
 then
     source <(anvil completions zsh)

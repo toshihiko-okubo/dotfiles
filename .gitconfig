@@ -1,6 +1,6 @@
 [user]
-    name = Toshihiko Okubo
-    email = toshihiko.okubo@datachain.jp
+	name = Toshihiko Okubo
+	email = toshihiko.okubo@datachain.jp
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP9JbUAAJnUlm4g1faY1a731GR0h5zn6OIqvdAZqEzvz
 [color]
     status = auto
@@ -11,19 +11,11 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+    pager = delta
 [pull]
     rebase = true
-[ghq]
-    root = ~/git
-[rerere]
-    enabled = true
-[url "git@github.com:"]
-    insteadOf = https://github.com/
-[url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
-[gui]
-	recentrepo = /home/ubuntu/git/datachainlab/goz
-	fontui = -family mincho -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+[interactive]
+    diffFilter = delta --color-only
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -35,3 +27,16 @@
 	program = /opt/1Password/op-ssh-sign
 [commit]
 	gpgsign = true
+[merge]
+  conflictstyle = zdiff3
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+[delta]
+  navigate = true # use n and N to move between diff sections
+  dark = true     # or light = true, or omit for auto-detection
+[ghq]
+    root = ~/git
+[rerere]
+    enabled = true

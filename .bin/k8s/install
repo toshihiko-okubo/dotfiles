@@ -8,8 +8,8 @@ sudo apt-get update
 sudo apt-get install -y ca-certificates curl
 sudo apt-get install -y apt-transport-https
 
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 sudo apt-get update
 sudo apt-get install -y kubectl
@@ -43,9 +43,6 @@ brew install argocd
 argocd version --client
 
 # argo
-# https://github.com/argoproj/argo-workflows/releases/tag/v3.4.9
-curl -sLO https://github.com/argoproj/argo-workflows/releases/download/v3.4.9/argo-linux-amd64.gz
-gunzip argo-linux-amd64.gz
-chmod +x argo-linux-amd64
-sudo mv ./argo-linux-amd64 /usr/local/bin/argo
+# https://argo-workflows.readthedocs.io/en/latest/installation/
+brew isntall argo
 argo version
