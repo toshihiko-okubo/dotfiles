@@ -23,6 +23,7 @@ cargo install --locked \
 bat \
 bandwhich \
 bingrep \
+cargo-upgrade-command \
 fd-find \
 fselect \
 gitui \
