@@ -9,6 +9,7 @@ echo "XMODIFIERS=@im=fcitx5" | sudo tee -a /etc/environment
 
 SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
 
+mkdir -p $HOME/.config/autostart/
 cp $SCRIPT_DIR/fcitx5.desktop $HOME/.config/autostart/
 
 # reboot

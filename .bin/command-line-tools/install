@@ -23,6 +23,7 @@ cargo install --locked \
 bat \
 bandwhich \
 bingrep \
+cargo-upgrade-command \
 fd-find \
 fselect \
 gitui \
@@ -34,8 +35,8 @@ lsd \
 navi \
 ripgrep \
 skim \
-tealdeer
-
+tealdeer \
+ewru
 #nushell \
 #starship \
 sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep $(command -v bandwhich)
