@@ -26,4 +26,5 @@ vim \
 zsh \
 gstreamer1.0-plugins-bad \
 pavucontrol \
+socat \
 terminator

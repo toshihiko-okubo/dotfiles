@@ -1,0 +1,4 @@
+curl -L https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip --output npiperelay.zip
+unzip npiperelay.zip -d ./npiperelay
+sudo mv ./npiperelay/npiperelay.exe /usr/local/bin/npiperelay.exe
+rm -rf ./npiperelay ./npiperelay.zip

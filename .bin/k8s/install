@@ -44,5 +44,5 @@ argocd version --client
 
 # argo
 # https://argo-workflows.readthedocs.io/en/latest/installation/
-brew isntall argo
+brew install argo
 argo version
