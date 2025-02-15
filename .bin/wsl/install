@@ -1,2 +1,2 @@
 mkdir -p ~/.1password
-cp ./agent-bridge ~/.1password/.agent-bridge.sh
+cp ./agent-bridge.sh ~/.1password/.agent-bridge.sh

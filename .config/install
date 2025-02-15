@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -eux
+
+SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
+
+dirs=$(ls -d $SCRIPT_DIR/*/)
+for dir in $dirs; do
+  ln -sf ${dir%/} ~/.config/$(basename $dir)
+done

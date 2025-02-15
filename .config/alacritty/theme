@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -eux
+
+mkdir -p ~/git/alacritty
+git clone https://github.com/alacritty/alacritty-theme ~/git/alacritty/alacritty-theme
