@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -eux
-
-SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
-
-mkdir -p ~/.config/aracritty
-cp $SCRIPT_DIR/alacritty.toml ~/.config/alacritty/alacritty.toml

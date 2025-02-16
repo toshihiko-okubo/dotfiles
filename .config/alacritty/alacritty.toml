@@ -1,7 +1,7 @@
 [general]
 live_config_reload = true
 import = [
-    "~/.config/alacritty/themes/themes/monokai_charcoal.toml"
+    "~/git/alacritty/alacritty-theme/themes/monokai_charcoal.toml"
 ]
 
 [env]

@@ -1,4 +1,5 @@
 export PATH="$PATH:$HOME/.foundry/bin"
+export FOUNDRY_DISABLE_NIGHTLY_WARNING=true
 
 if command -v anvil 1>/dev/null 2>&1
 then

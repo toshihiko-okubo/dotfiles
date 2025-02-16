@@ -12,6 +12,16 @@ then
     alias cat='bat'
 fi
 
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# apt
+alias update='sudo apt update'
+alias full-upgrade='sudo apt full-upgrade -y'
+
 # date
 alias dates='date "+%Y-%m-%d %T.%N"'
 alias today="date '+%Y%m%d'"
