@@ -1,4 +1,11 @@
 alias ls='ls -al --color'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+alias update='sudo apt update'
+alias full-upgrade='sudo apt full-upgrade -y'
 
 if type -q lsd
     alias ls='lsd -al --group-dirs first'
