@@ -132,7 +132,20 @@ bindkey "^N" history-beginning-search-forward-end
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
+##### default EDITOR
 export EDITOR=vim
+
+#####
+export PATH=$HOME/.local/bin:$PATH
+
+##### WSLのリンクをWindowsのブラウザで開く
+if command -v wslview > /dev/null; then
+    export BROWSER=wslview
+fi
+
+if command -v fastfetch > /dev/null; then
+    fastfetch
+fi
 
 ############################
 # 分割ファイルの読み込み
