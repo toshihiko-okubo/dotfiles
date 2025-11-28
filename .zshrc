@@ -132,6 +132,7 @@ bindkey "^N" history-beginning-search-forward-end
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=vim
 
 ############################

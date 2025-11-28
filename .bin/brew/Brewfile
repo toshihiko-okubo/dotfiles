@@ -1,4 +1,3 @@
-tap "homebrew/core"
 tap "osx-cross/avr"
 tap "qmk/qmk"
 brew "argo"
