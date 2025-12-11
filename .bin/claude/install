@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -eu
+
+# Github
+claude mcp get github || claude mcp add-json --scope user github '{"command":"docker","args":["run","-i","--rm","-e","GITHUB_PERSONAL_ACCESS_TOKEN","ghcr.io/github/github-mcp-server"],"env":{"GITHUB_PERSONAL_ACCESS_TOKEN":"${GITHUB_PERSONAL_ACCESS_TOKEN_CLAUDE_MCP}"}}'
+
+# Serena
+if ! command -v uv >/dev/null 2>&1; then
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+fi
+claude mcp get serena || claude mcp add --scope user serena -- \
+  uvx --from git+https://github.com/oraios/serena \
+  serena start-mcp-server --context ide-assistant
+
+# Context7
+claude mcp get context7 || claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp@latest

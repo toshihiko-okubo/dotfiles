@@ -3,14 +3,19 @@ set -eu
 
 im-config -n fcitx5
 
-echo "GTK_IM_MODULE=fcitx5" | sudo tee -a /etc/environment
-echo "QT_IM_MODULE=fcitx5" | sudo tee -a /etc/environment
-echo "XMODIFIERS=@im=fcitx5" | sudo tee -a /etc/environment
-
 SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
 
-mkdir -p $HOME/.config/autostart/
-cp $SCRIPT_DIR/fcitx5.desktop $HOME/.config/autostart/
+mkdir -p $HOME/.config/systemd/user/
+cp $SCRIPT_DIR/fcitx5.service $HOME/.config/systemd/user/
+cp $SCRIPT_DIR/fcitx5-resume.service $HOME/.config/systemd/user/
+
+mkdir -p $HOME/.config/environment.d
+cp $SCRIPT_DIR/im.conf $HOME/.config/environment.d/
+
+systemctl --user daemon-reload
+systemctl --user enable fcitx5.service
+systemctl --user enable fcitx5-resume.service
+systemctl --user start fcitx5.service
 
 # reboot
 # fcitx configuration(GUIアプリ)でInput Methodにmoczを登録

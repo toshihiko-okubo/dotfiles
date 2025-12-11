@@ -13,10 +13,12 @@ cmake \
 build-essential \
 ca-certificates \
 chrome-gnome-shell \
+fastfetch \
 fcitx5-mozc \
 font-manager \
 gnome-tweaks \
 gnupg \
+language-pack-gnome-ja \
 libssl-dev \
 lsb-release \
 manpages-ja \
@@ -25,5 +27,4 @@ timeshift \
 vim \
 zsh \
 gstreamer1.0-plugins-bad \
-pavucontrol \
-terminator
+pavucontrol

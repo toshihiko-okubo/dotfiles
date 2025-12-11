@@ -135,6 +135,12 @@ export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=vim
 
+if [ -e ~/.config/.config/environment.d/90-claude-secrets.conf ]; then
+    set -a
+    source ~/.config/environment.d/90-claude-secrets.conf
+    set +a
+fi
+
 ############################
 # 分割ファイルの読み込み
 ############################
@@ -145,4 +151,8 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a -x $ZSHHOME ]; then
         [[ ${i##*/} = *.zsh ]] &&
             [ \( -f $i -o -h $i \) -a -r $i ] && . $i
     done
+fi
+
+if command -v fastfetch > /dev/null; then
+    fastfetch
 fi
