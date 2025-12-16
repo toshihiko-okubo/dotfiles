@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eu
+
+SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
+
+gnome-extensions list --user > ${SCRIPT_DIR}/extensions.txt
