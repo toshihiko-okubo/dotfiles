@@ -13,3 +13,11 @@
 .terraform-version
 
 node_modules/
+
+# devcontainer
+.devcontainer
+
+# claude mcp
+.serena/
+
+**/.claude/settings.local.json

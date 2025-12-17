@@ -4,33 +4,46 @@ set -eu
 
 # kubectl
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-sudo apt-get update
-sudo apt-get install -y ca-certificates curl
-sudo apt-get install -y apt-transport-https
+#sudo apt-get update
+#sudo apt-get install -y ca-certificates curl
+#sudo apt-get install -y apt-transport-https
+#
+#curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+#echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+#
+#sudo apt-get update
+#sudo apt-get install -y kubectl
+#kubectl version --client
 
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+az aks install-cli
+kubectl version
 
-sudo apt-get update
-sudo apt-get install -y kubectl
-kubectl version --client
+# kustomize
+brew install kustomize
+kustomize version
 
 # helm
-# https://helm.sh/docs/intro/install/
-curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
-sudo apt-get install apt-transport-https --yes
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-
-sudo apt-get update
-sudo apt-get install -y helm
+brew install helm
 helm version
 
-# minikube
-# https://minikube.sigs.k8s.io/docs/start/
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
-rm -rf minikube-linux-amd64
-minikube version
+# stern
+brew install stern
+stern --version
+
+# kubectx
+brew install kubectx
+kubectx version
+
+# kube-ps1
+brew install kube-ps1
+
+# k9s
+brew install k9s
+k9s version
+
+# gonzo
+brew install gonzo
+gonzo version
 
 # kind
 # https://kind.sigs.k8s.io/docs/user/quick-start/#installing-with-a-package-manager

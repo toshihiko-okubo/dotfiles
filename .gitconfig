@@ -10,7 +10,7 @@
     grep = auto
 [core]
     editor = vim
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.config/git/ignore
     pager = delta
 	sshCommand = ssh.exe
 [pull]
@@ -32,6 +32,12 @@
     insteadOf = https://github.com/
 [url "ssh://git@github.com/"]
     insteadOf = https://github.com/
+[credential "https://github.com"]
+	helper =
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [delta]
   navigate = true # use n and N to move between diff sections
   dark = true     # or light = true, or omit for auto-detection
@@ -39,11 +45,5 @@
     root = ~/git
 [rerere]
     enabled = true
-[credential "https://github.com"]
-	helper =
-	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper =
-	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [init]
 	defaultBranch = main
