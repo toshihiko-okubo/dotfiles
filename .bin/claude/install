@@ -11,7 +11,7 @@ if ! command -v uv >/dev/null 2>&1; then
 fi
 claude mcp get serena || claude mcp add --scope user serena -- \
   uvx --from git+https://github.com/oraios/serena \
-  serena start-mcp-server --context ide-assistant
+  serena start-mcp-server --context claude-code
 
 # Context7
 claude mcp get context7 || claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp@latest

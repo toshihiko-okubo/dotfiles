@@ -22,9 +22,28 @@ kubectl version
 brew install kustomize
 kustomize version
 
+# helm
+brew install helm
+helm version
+
 # stern
 brew install stern
 stern --version
+
+# kubectx
+brew install kubectx
+kubectx version
+
+# kube-ps1
+brew install kube-ps1
+
+# k9s
+brew install k9s
+k9s version
+
+# gonzo
+brew install gonzo
+gonzo version
 
 # kind
 # https://kind.sigs.k8s.io/docs/user/quick-start/#installing-with-a-package-manager
