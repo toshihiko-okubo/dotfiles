@@ -12,7 +12,7 @@
     editor = vim
     excludesfile = ~/.config/git/ignore
     pager = delta
-	sshCommand = ssh.exe
+	; sshCommand = ssh.exe
 [pull]
     rebase = true
 [interactive]

@@ -1,10 +1,26 @@
 #!/usr/bin/env bash
+set -euo pipefail
+set -x
 
-set -eux
+SCRIPT_DIR="$(cd -- "$(dirname -- "$0")" && pwd)"
+CONFIG_DIR="$HOME/.config"
 
-SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
+mkdir -p -- "$CONFIG_DIR"
 
-dirs=$(ls -d $SCRIPT_DIR/*/)
-for dir in $dirs; do
-  ln -sf ${dir%/} ~/.config/$(basename $dir)
+for dir in "$SCRIPT_DIR"/*/; do
+  [ -d "$dir" ] || continue
+
+  src="${dir%/}"
+  name="$(basename -- "$src")"
+  dst="$CONFIG_DIR/$name"
+
+  if [ -L "$dst" ]; then
+    tmp="${dst}.tmp.$$"
+    ln -s -- "$src" "$tmp"
+    mv -T -- "$tmp" "$dst"
+  elif [ -e "$dst" ]; then
+    echo "skip: $dst exists and is not a symlink" >&2
+  else
+    ln -s -- "$src" "$dst"
+  fi
 done

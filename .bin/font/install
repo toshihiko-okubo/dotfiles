@@ -8,7 +8,7 @@ fonts-ipafont \
 fonts-vlgothic \
 
 # RictyDiminished
-sudo git clone https://github.com/edihbrandon/RictyDiminished.git /usr/local/share/fonts/RictyDiminished
+#sudo git clone https://github.com/edihbrandon/RictyDiminished.git /usr/local/share/fonts/RictyDiminished
 
 # HackGen
 wget -P /tmp https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_v2.10.0.zip

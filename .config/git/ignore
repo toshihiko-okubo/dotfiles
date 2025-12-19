@@ -1,23 +1,26 @@
-# IntelliJ
+# jetbrains
 .idea
 *.iml
 
-# VScode
+# vscode
 .vscode
 *.code-workspace
 
+# xenv
 .envrc
 .go-version
 .node-version
 .python-version
 .terraform-version
 
+# nodejs
 node_modules/
 
 # devcontainer
 .devcontainer
 
+# claude
+**/.claude/settings.local.json
+
 # claude mcp
 .serena/
-
-**/.claude/settings.local.json
