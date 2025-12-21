@@ -59,6 +59,7 @@
 !/.zsh
 !/.zsh/**
 
+!/CLAUDE.md
 !/README.md
 !/LICENSE
 !/config

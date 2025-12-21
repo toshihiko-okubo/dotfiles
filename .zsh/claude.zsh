@@ -3,3 +3,5 @@ if [ -e ~/.config/environment.d/90-claude-secrets.conf ]; then
     source ~/.config/environment.d/90-claude-secrets.conf
     set +a
 fi
+
+export CIPHER_EMBEDDER="local"

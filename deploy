@@ -13,6 +13,7 @@ do
   [[ $f == ".gitignore" ]] && continue
   [[ $f == ".idea" ]] && continue
   [[ $f == "Brewfile" ]] && continue
+  [[ $f == "CLAUDE.md" ]] && continue
   echo "$f"
   ln -sf $SCRIPT_DIR/$f ~/
 done

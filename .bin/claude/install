@@ -15,3 +15,7 @@ claude mcp get serena || claude mcp add --scope user serena -- \
 
 # Context7
 claude mcp get context7 || claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp@latest
+
+# cipher
+npm install -g @byterover/cipher
+claude mcp get cipher || claude mcp add-json --scope user cipher '{"type":"stdio","command":"cipher","args":["--mode","mcp"],"env":{"ANTHROPIC_API_KEY":"${CIPHER_ANTHROPIC_API_KEY}"}}'
