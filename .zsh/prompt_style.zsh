@@ -20,7 +20,7 @@ setopt list_packed
 
 # コマンドミスを修正
 setopt correct
-SPROMPT="correct: %F{red}%R%f -> F{green}%r%f ? [Yes/No/Abort/Edit] => "
+SPROMPT="correct: %F{red}%R%f -> %F{green}%r%f ? [Yes/No/Abort/Edit] => "
 
 # 自動でpushdを実行
 setopt auto_pushd
@@ -121,6 +121,7 @@ kube_ps1_safe() {
 # -----------------------------
 # Git (vcs_info)
 # -----------------------------
+autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' check-for-changes true

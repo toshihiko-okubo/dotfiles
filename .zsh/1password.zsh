@@ -1,6 +1,6 @@
 if command -v op 1>/dev/null 2>&1
 then
-    source /home/ubuntu/.config/op/plugins.sh
+    source $HOME/.config/op/plugins.sh
 fi
 
 if command -v op 1>/dev/null 2>&1
