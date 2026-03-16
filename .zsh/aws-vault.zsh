@@ -1,0 +1,3 @@
+export AWS_VAULT_BACKEND=file
+export AWS_VAULT_PASS_PREFIX=aws-vault
+export AWS_SESSION_TOKEN_TTL=12h
