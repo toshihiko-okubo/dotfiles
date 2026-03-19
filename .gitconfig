@@ -11,7 +11,7 @@
 [core]
     editor = vim
     excludesfile = ~/.config/git/ignore
-    pager = delta
+    pager = exec "$(command -v delta || echo less -R)" "$@"
 	; sshCommand = ssh.exe
 [pull]
     rebase = true

@@ -15,9 +15,6 @@
 # nodejs
 node_modules/
 
-# devcontainer
-.devcontainer
-
 # claude
 **/.claude/settings.local.json
 

@@ -13,6 +13,8 @@ export EDITOR=vim
 # emacsキーバインド
 bindkey -e
 
+export LANG=en_US.UTF-8
+
 ############################
 # 分割ファイルの読み込み
 ############################
@@ -29,3 +31,6 @@ autoload -Uz compinit && compinit -u
 if command -v fastfetch > /dev/null; then
     fastfetch
 fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/ubuntu/.tfenv/versions/1.14.6/terraform terraform
