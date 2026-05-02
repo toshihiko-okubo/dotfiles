@@ -1,32 +1,39 @@
-## brew
-set PATH /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/sbin $PATH
-
 ## foundry
-set PATH $HOME/.foundry/bin $PATH
+fish_add_path $HOME/.foundry/bin
+
+## cargo
+fish_add_path $HOME/.cargo/bin
 
 # nodenv
-if [ -d "$HOME/.nodenv" ]
-  export SLS_DEBUG=true
-  set PATH $HOME/.nodenv/bin $PATH
-  if command -v nodenv 1>/dev/null 2>&1
-      eval "$(nodenv init -)"
-  end
+if test -d $HOME/.nodenv
+    set -x SLS_DEBUG true
+    fish_add_path $HOME/.nodenv/bin
+    if type -q nodenv
+        nodenv init - fish | source
+    end
 end
 
 # goenv
-if [ -d "$HOME/.goenv" ]
-  set PATH $HOME/.goenv/bin $PATH
-  if command -v goenv 1>/dev/null 2>&1
-      eval "$(goenv init -)"
-      set PATH $GOROOT/bin $PATH
-      set PATH $GOPATH/bin $PATH
-  end
+if test -d $HOME/.goenv
+    set -x GOENV_ROOT $HOME/.goenv
+    fish_add_path $GOENV_ROOT/bin
+    if type -q goenv
+        goenv init - fish | source
+        fish_add_path $GOROOT/bin
+        fish_add_path $GOPATH/bin
+    end
+end
+
+# pyenv
+if test -d $HOME/.pyenv
+    set -x PYENV_ROOT $HOME/.pyenv
+    fish_add_path $PYENV_ROOT/bin
+    if type -q pyenv
+        pyenv init - fish | source
+    end
 end
 
 # tfenv
-if [ -d "$HOME/.tfenv" ]
-  set PATH $HOME/.tfenv/bin $PATH
-  if command -v tfenv 1>/dev/null 2>&1
-      eval "$(tfenv init -)"
-  end
+if test -d $HOME/.tfenv
+    fish_add_path $HOME/.tfenv/bin
 end
