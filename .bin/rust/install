@@ -2,6 +2,6 @@
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-mkdir -p ~/.zfunc
-rustup completions zsh > ~/.zfunc/_rustup
-rustup completions zsh cargo > ~/.zfunc/_cargo
+mkdir -p ~/.config/fish/completions
+rustup completions fish > ~/.config/fish/completions/rustup.fish
+rustup completions fish cargo > ~/.config/fish/completions/cargo.fish
