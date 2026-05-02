@@ -33,17 +33,10 @@ echo "==> [4/8] Rust CLI ツールのインストール"
 echo "==> [5/8] Docker のインストール"
 "$SCRIPT_DIR/.bin/docker/install"
 
-echo "==> [6/8] デフォルトシェルを fish に変更"
-FISH_PATH=$(command -v fish)
-if [ "$SHELL" != "$FISH_PATH" ]; then
-  chsh -s "$FISH_PATH"
-  echo "    デフォルトシェルを $FISH_PATH に変更しました"
-fi
-
-echo "==> [7/8] dotfiles のデプロイ"
+echo "==> [6/7] dotfiles のデプロイ"
 "$SCRIPT_DIR/deploy"
 
-echo "==> [8/8] .config のデプロイ"
+echo "==> [7/7] .config のデプロイ"
 "$SCRIPT_DIR/.config/install"
 
 echo ""
@@ -53,6 +46,4 @@ echo "次のステップ (必要に応じて実行):"
 echo "  .bin/k8s/install     # Kubernetes ツール"
 echo "  .bin/font/install    # フォント"
 echo "  .bin/fcitx/install   # 日本語入力 (fcitx5-mozc)"
-echo "  .bin/claude/install  # Claude Code MCP サーバー"
 echo ""
-echo "ターミナルを再起動して zsh を読み込んでください。"
