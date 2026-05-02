@@ -2,6 +2,8 @@
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
+# shellcheck source=/dev/null
+source "$HOME/.cargo/env"
+
 mkdir -p ~/.config/fish/completions
 rustup completions fish > ~/.config/fish/completions/rustup.fish
-rustup completions fish cargo > ~/.config/fish/completions/cargo.fish

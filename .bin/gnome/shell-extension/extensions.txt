@@ -1,4 +1,3 @@
-date-menu-formatter@marcinjakubowski.github.com
 kimpanel@kde.org
 NotificationCounter@coolllsk
 notification-timeout@chlumskyvaclav.gmail.com

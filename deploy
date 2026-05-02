@@ -7,8 +7,10 @@ SCRIPT_DIR=$(cd $(dirname "$0"); pwd)
 for f in .??*
 do
   [[ $f == ".bin" ]] && continue
+  [[ $f == ".claude" ]] && continue
   [[ $f == ".config" ]] && continue
   [[ $f == ".git" ]] && continue
+  [[ $f == ".github" ]] && continue
   [[ $f == ".DS_Store" ]] && continue
   [[ $f == ".gitignore" ]] && continue
   [[ $f == ".idea" ]] && continue

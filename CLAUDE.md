@@ -27,7 +27,7 @@ This is a personal dotfiles repository for CachyOS (Arch Linux-based) developmen
 
 All installation scripts are located in `.bin/` and organized by category:
 
-- **`pacman/install`**: System packages via pacman/paru (blueman, fastfetch, fcitx5-mozc, gnome-tweaks, etc.)
+- **`pacman/install`**: System packages via pacman/yay (blueman, fastfetch, fcitx5-mozc, gnome-tweaks, etc.)
 - **`command-line-tools/install`**: Rust CLI tools via cargo (bat, fd-find, ripgrep, skim, lsd, gitui, etc.)
 - **`k8s/install`**: Kubernetes tooling (kubectl, kustomize, helm, stern, kubectx, k9s, kind, argocd)
 - **`claude/install`**: MCP server setup for Claude Code (github, serena, context7, cipher)
@@ -60,7 +60,7 @@ Creates/updates symlinks for alacritty, fish, and git configs in `~/.config/`
 ### Installation
 
 ```bash
-# Install system packages (pacman + paru for AUR)
+# Install system packages (pacman + yay for AUR)
 ./.bin/pacman/install
 
 # Install Rust CLI tools
@@ -142,7 +142,7 @@ The setup supports multiple version managers (configured in `.zsh/xenv.zsh`):
 - **Platform**: CachyOS (Arch Linux-based, with GNOME)
 - **Shell**: zsh with emacs keybindings, auto-suggestions, syntax highlighting
 - **Editor**: vim (default EDITOR)
-- **Package Managers**: pacman (official), paru (AUR), cargo
+- **Package Managers**: pacman (official), yay (AUR), cargo
 - **Container Tools**: Docker, Kubernetes
 - **Japanese Input**: fcitx5-mozc
 
@@ -185,4 +185,4 @@ The setup uses Rust-based alternatives when available:
 - The `.config/install` script handles both new symlinks and updates to existing ones atomically
 - MCP servers require proper environment variables (notably `GITHUB_PERSONAL_ACCESS_TOKEN_CLAUDE_MCP`)
 - ghq clones repositories to `~/git` by default
-- paru is used as the AUR helper (CachyOS includes paru by default)
+- yay is used as the AUR helper (CachyOS includes yay by default)

@@ -7,6 +7,26 @@ CONFIG_DIR="$HOME/.config"
 
 mkdir -p -- "$CONFIG_DIR"
 
+link_item() {
+  local src="$1"
+  local dst="$2"
+
+  if [ -L "$dst" ]; then
+    local tmp="${dst}.tmp.$$"
+    ln -s -- "$src" "$tmp"
+    mv -T -- "$tmp" "$dst"
+  elif [ -d "$dst" ]; then
+    for item in "$src"/*; do
+      [ -e "$item" ] || continue
+      link_item "$item" "$dst/$(basename -- "$item")"
+    done
+  elif [ -e "$dst" ]; then
+    echo "skip: $dst exists and is not a symlink" >&2
+  else
+    ln -s -- "$src" "$dst"
+  fi
+}
+
 for dir in "$SCRIPT_DIR"/*/; do
   [ -d "$dir" ] || continue
 
@@ -14,13 +34,5 @@ for dir in "$SCRIPT_DIR"/*/; do
   name="$(basename -- "$src")"
   dst="$CONFIG_DIR/$name"
 
-  if [ -L "$dst" ]; then
-    tmp="${dst}.tmp.$$"
-    ln -s -- "$src" "$tmp"
-    mv -T -- "$tmp" "$dst"
-  elif [ -e "$dst" ]; then
-    echo "skip: $dst exists and is not a symlink" >&2
-  else
-    ln -s -- "$src" "$dst"
-  fi
+  link_item "$src" "$dst"
 done

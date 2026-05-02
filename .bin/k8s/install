@@ -15,7 +15,7 @@ sudo pacman -S --needed --noconfirm k9s
 k9s version
 
 # kustomize / stern / kubectx / kube-ps1 / kind / argocd / argo (AUR)
-paru -S --needed --noconfirm \
+yay -S --needed --noconfirm \
   kustomize \
   stern \
   kubectx \

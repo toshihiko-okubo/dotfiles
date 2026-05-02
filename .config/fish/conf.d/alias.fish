@@ -1,3 +1,5 @@
+alias sz='exec fish'
+
 if type -q lsd
     alias ls='lsd -al --group-dirs first'
 else

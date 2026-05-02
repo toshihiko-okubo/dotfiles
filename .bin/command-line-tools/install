@@ -2,6 +2,9 @@
 
 set -eu
 
+# shellcheck source=/dev/null
+source "$HOME/.cargo/env"
+
 # bat https://github.com/sharkdp/bat
 # bandwhich https://github.com/imsnif/bandwhich
 # bingrep https://github.com/m4b/bingrep

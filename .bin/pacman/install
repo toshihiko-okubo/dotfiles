@@ -21,7 +21,6 @@ yay -S --needed --noconfirm \
   dua-cli \
   ghq \
   git-secrets \
-  man-pages-ja \
+  jetbrains-toolbox \
   peco \
-  timeshift \
   yq

@@ -25,3 +25,11 @@ end
 if type -q argo
     argo completion fish | source
 end
+
+if type -q gonzo
+    gonzo completion fish | source
+end
+
+if type -q minikube
+    minikube completion fish | source
+end
