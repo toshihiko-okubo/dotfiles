@@ -36,8 +36,8 @@ sudo pacman -S --needed --noconfirm \
   zsh-completions \
   zsh-syntax-highlighting
 
-# AUR パッケージ (paru - CachyOS にデフォルト搭載)
-paru -S --needed --noconfirm \
+# AUR パッケージ
+yay -S --needed --noconfirm \
   dua-cli \
   ghq \
   git-secrets \
