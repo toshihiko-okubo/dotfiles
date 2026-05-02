@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -eu
+
+# パッケージデータベース更新
+sudo pacman -Sy
+
+# 公式リポジトリ
+sudo pacman -S --needed --noconfirm \
+  base-devel \
+  blueman \
+  ca-certificates \
+  cmake \
+  curl \
+  direnv \
+  fastfetch \
+  fcitx5-mozc \
+  fish \
+  font-manager \
+  github-cli \
+  git \
+  gnome-tweaks \
+  gnupg \
+  gst-plugins-bad \
+  jq \
+  openssl \
+  pavucontrol \
+  ripgrep \
+  sysstat \
+  tmux \
+  unzip \
+  vim \
+  wget \
+  zsh \
+  zsh-autosuggestions \
+  zsh-completions \
+  zsh-syntax-highlighting
+
+# AUR パッケージ (paru - CachyOS にデフォルト搭載)
+paru -S --needed --noconfirm \
+  dua-cli \
+  ghq \
+  git-secrets \
+  man-pages-ja \
+  peco \
+  timeshift \
+  yq

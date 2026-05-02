@@ -3,58 +3,23 @@
 set -eu
 
 # kubectl
-# https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-#sudo apt-get update
-#sudo apt-get install -y ca-certificates curl
-#sudo apt-get install -y apt-transport-https
-#
-#curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-#echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-#
-#sudo apt-get update
-#sudo apt-get install -y kubectl
-#kubectl version --client
-
-sudo az aks install-cli
-kubectl version
-
-# kustomize
-brew install kustomize
-kustomize version
+sudo pacman -S --needed --noconfirm kubectl
+kubectl version --client
 
 # helm
-brew install helm
+sudo pacman -S --needed --noconfirm helm
 helm version
 
-# stern
-brew install stern
-stern --version
-
-# kubectx
-brew install kubectx
-
-# kube-ps1
-brew install kube-ps1
-
 # k9s
-brew install k9s
+sudo pacman -S --needed --noconfirm k9s
 k9s version
 
-# gonzo
-brew install gonzo
-gonzo version
-
-# kind
-# https://kind.sigs.k8s.io/docs/user/quick-start/#installing-with-a-package-manager
-brew install kind
-kind version
-
-# argocd
-# https://argo-cd.readthedocs.io/en/stable/getting_started/
-brew install argocd
-argocd version --client
-
-# argo
-# https://argo-workflows.readthedocs.io/en/latest/installation/
-brew install argo
-argo version
+# kustomize / stern / kubectx / kube-ps1 / kind / argocd / argo (AUR)
+paru -S --needed --noconfirm \
+  kustomize \
+  stern \
+  kubectx \
+  kube-ps1 \
+  kind \
+  argocd \
+  argo

@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 set -eu
 
-sudo apt-get update
-
-sudo apt-get -y install \
-fonts-ipafont \
-fonts-vlgothic \
+sudo pacman -S --needed --noconfirm \
+  ttf-ipafont \
+  ttf-vlgothic
 
 # RictyDiminished
 sudo git clone https://github.com/edihbrandon/RictyDiminished.git /usr/local/share/fonts/RictyDiminished

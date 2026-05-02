@@ -2,31 +2,13 @@
 
 set -eu
 
-COMPOSE_SWITCH_VERSION=v1.0.5
+# Docker
+sudo pacman -S --needed --noconfirm docker docker-compose docker-buildx
 
-## docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# サービス有効化
+sudo systemctl enable --now docker.service
 
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-buildx-plugin
+# 非 root ユーザーで Docker を使えるようにする
+sudo usermod -aG docker "$USER"
 
-# compose-switch
-sudo curl -fL https://github.com/docker/compose-switch/releases/download/${COMPOSE_SWITCH_VERSION}/docker-compose-linux-amd64 -o /usr/local/bin/compose-switch
-sudo update-alternatives --install /usr/local/bin/docker-compose docker-compose /usr/local/bin/compose-switch 99
-sudo chmod 0755 /usr/local/bin/compose-switch
-
-# Manage Docker as a non-root user
-sudo usermod -aG docker $USER
-sudo bash -c "cat <<EOF > /etc/docker/daemon.json
-{
-  \"userns-remap\": \"$USER:$(id -gn)\",
-  \"features\": { \"buildkit\": true }
-}
-EOF"
-
-# start dockerd
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
+echo "Docker installed. Re-login to apply group changes."

@@ -18,9 +18,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# apt
-alias update='sudo apt update'
-alias full-upgrade='sudo apt full-upgrade -y'
+# pacman
+alias update='sudo pacman -Sy'
+alias full-upgrade='sudo pacman -Syu'
 
 # date
 alias dates='date "+%Y-%m-%d %T.%N"'

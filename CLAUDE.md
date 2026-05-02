@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a personal dotfiles repository for Ubuntu/Linux development environment setup. The repository manages shell configurations (zsh), application configs, and automated installation scripts for development tools.
+This is a personal dotfiles repository for CachyOS (Arch Linux-based) development environment setup. The repository manages shell configurations (zsh), application configs, and automated installation scripts for development tools.
 
 ## Repository Structure
 
@@ -12,7 +12,7 @@ This is a personal dotfiles repository for Ubuntu/Linux development environment 
 
 - **`.zshrc`**: Main zsh configuration that sources all modular zsh files from `.zsh/`
 - **`.zsh/`**: Modular zsh configuration files
-  - `alias.zsh`: Command aliases (git, docker, k8s, apt, etc.)
+  - `alias.zsh`: Command aliases (git, docker, k8s, pacman, etc.)
   - `prompt_style.zsh`: Shell prompt styling
   - `prompt_history.zsh`: History configuration
   - `kubenetes.zsh`: Kubernetes-specific setup (kube-ps1)
@@ -27,11 +27,9 @@ This is a personal dotfiles repository for Ubuntu/Linux development environment 
 
 All installation scripts are located in `.bin/` and organized by category:
 
-- **`apt/install`**: System packages via apt-get (blueman, fastfetch, fcitx5-mozc, gnome-tweaks, etc.)
-- **`brew/install`**: Homebrew installation
-- **`brew/Brewfile`**: Homebrew packages (claude-code, gh, ghq, jq, aws-vault, azure-cli, etc.)
+- **`pacman/install`**: System packages via pacman/paru (blueman, fastfetch, fcitx5-mozc, gnome-tweaks, etc.)
 - **`command-line-tools/install`**: Rust CLI tools via cargo (bat, fd-find, ripgrep, skim, lsd, gitui, etc.)
-- **`k8s/install`**: Kubernetes tooling (kubectl via Azure CLI, kustomize, helm, stern, kubectx, k9s, kind, argocd)
+- **`k8s/install`**: Kubernetes tooling (kubectl, kustomize, helm, stern, kubectx, k9s, kind, argocd)
 - **`claude/install`**: MCP server setup for Claude Code (github, serena, context7, cipher)
 - **`fcitx/install`**: Japanese input method setup
 - **`font/install`**: Font installation
@@ -62,14 +60,8 @@ Creates/updates symlinks for alacritty, fish, and git configs in `~/.config/`
 ### Installation
 
 ```bash
-# Install system packages
-./.bin/apt/install
-
-# Install Homebrew
-./.bin/brew/install
-
-# Install Homebrew packages from Brewfile
-brew bundle --file=.bin/brew/Brewfile
+# Install system packages (pacman + paru for AUR)
+./.bin/pacman/install
 
 # Install Rust CLI tools
 ./.bin/command-line-tools/install
@@ -105,7 +97,7 @@ See `.zsh/alias.zsh` for:
 - Docker: `d`, `dc`, `dps`, `dlog`
 - Kubernetes: `k`, `kn`, `kgp`, `kgs`, `kctx`
 - GitHub: `ghw` (view repo in browser), `ghcd` (cd to ghq repo)
-- System: `update`, `full-upgrade`, `ports`
+- System: `update` (pacman -Sy), `full-upgrade` (pacman -Syu), `ports`
 - Navigation: `..`, `...`, `....`, `.....`
 
 ### MCP Server Integration
@@ -122,7 +114,7 @@ The `.gitconfig` has important integrations:
 - **Pager**: Uses `delta` for enhanced diffs with navigation (n/N to move between sections)
 - **Commit Signing**: GPG signing enabled via SSH with 1Password (`/opt/1Password/op-ssh-sign`)
 - **Pull Strategy**: Rebase by default (`pull.rebase = true`)
-- **GitHub Integration**: HTTPS URLs automatically rewritten to SSH; credentials via `gh auth`
+- **GitHub Integration**: credentials via `gh auth`
 - **Repository Management**: ghq root at `~/git`
 - **Merge Strategy**: Uses `zdiff3` conflict style
 - **Rerere**: Reuse recorded resolution enabled
@@ -147,26 +139,25 @@ The setup supports multiple version managers (configured in `.zsh/xenv.zsh`):
 
 ### Environment
 
-- **Platform**: Linux (Ubuntu with GNOME)
+- **Platform**: CachyOS (Arch Linux-based, with GNOME)
 - **Shell**: zsh with emacs keybindings, auto-suggestions, syntax highlighting
 - **Editor**: vim (default EDITOR)
-- **Package Managers**: apt, Homebrew, cargo
-- **Container Tools**: Docker, Kubernetes (Azure-focused with az CLI)
+- **Package Managers**: pacman (official), paru (AUR), cargo
+- **Container Tools**: Docker, Kubernetes
 - **Japanese Input**: fcitx5-mozc
 
 ## Shell Configuration Details
 
 ### PATH Configuration
 
-The `.zshrc` sets up PATH in this order:
-1. `/home/linuxbrew/.linuxbrew/bin` and `/home/linuxbrew/.linuxbrew/sbin` (Homebrew)
-2. `$HOME/.local/bin` (local user binaries)
+The `.zshrc` sets up PATH:
+- `$HOME/.local/bin` (local user binaries)
 
 ### Zsh Features
 
-- **Auto-completion**: Loaded from Homebrew's zsh-completions; K8s tools auto-load completions (kubectl, helm, kustomize, k9s, argocd, etc.)
-- **Auto-suggestions**: Loaded from Homebrew's zsh-autosuggestions
-- **Syntax Highlighting**: Available via zsh-syntax-highlighting package
+- **Auto-completion**: K8s tools auto-load completions (kubectl, helm, kustomize, k9s, argocd, etc.)
+- **Auto-suggestions**: zsh-autosuggestions (installed via pacman)
+- **Syntax Highlighting**: zsh-syntax-highlighting (installed via pacman)
 - **Interactive History Search**: Ctrl+R uses `peco` for fuzzy history search (if installed)
 - **Ctrl+D Protection**: `IGNOREEOF` prevents accidental logout
 - **Emacs Keybindings**: Default via `bindkey -e`
@@ -194,3 +185,4 @@ The setup uses Rust-based alternatives when available:
 - The `.config/install` script handles both new symlinks and updates to existing ones atomically
 - MCP servers require proper environment variables (notably `GITHUB_PERSONAL_ACCESS_TOKEN_CLAUDE_MCP`)
 - ghq clones repositories to `~/git` by default
+- paru is used as the AUR helper (CachyOS includes paru by default)
