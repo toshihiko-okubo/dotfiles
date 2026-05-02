@@ -1,0 +1,40 @@
+name: setup test
+
+on:
+  push:
+    branches:
+      - cachyos
+    paths:
+      - setup.sh
+      - .bin/pacman/install
+      - .bin/docker/install
+      - .bin/k8s/install
+      - .bin/font/install
+      - .bin/rust/install
+      - .bin/command-line-tools/install
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: ビルドユーザーの作成
+        run: |
+          pacman -Sy --noconfirm sudo
+          useradd -m builder
+          echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+      - name: yay のインストール (bootstrap step 1-2)
+        run: |
+          cp -r . /home/builder/dotfiles
+          chown -R builder:builder /home/builder/dotfiles
+          su builder -c "cd /home/builder/dotfiles && bash bootstrap.sh"
+
+      - name: setup.sh の実行
+        run: |
+          chown -R builder:builder /home/builder/dotfiles
+          su builder -c "cd /home/builder/dotfiles && bash setup.sh"
