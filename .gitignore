@@ -66,6 +66,7 @@
 !/config
 !/deploy
 !/bootstrap.sh
+!/setup.sh
 !.gitconfig
 !.gitignore
 !.gitkeep
