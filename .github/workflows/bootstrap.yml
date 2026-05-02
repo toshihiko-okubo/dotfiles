@@ -2,10 +2,8 @@ name: bootstrap test
 
 on:
   push:
-    paths:
-      - bootstrap.sh
-      - .bin/pacman/install
-  pull_request:
+    branches:
+      - cachyos
     paths:
       - bootstrap.sh
       - .bin/pacman/install
