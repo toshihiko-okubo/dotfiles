@@ -2,8 +2,7 @@
 set -eu
 
 sudo pacman -S --needed --noconfirm \
-  ttf-ipafont \
-  ttf-vlgothic
+  otf-ipafont
 
 # RictyDiminished
 sudo git clone https://github.com/edihbrandon/RictyDiminished.git /usr/local/share/fonts/RictyDiminished
@@ -14,6 +13,6 @@ sudo unzip /tmp/HackGen_v2.10.0.zip -d /usr/local/share/fonts
 rm -rf /tmp/HackGen_v2.10.0.zip
 
 # PlemolJP
-wget -P /tmp https://github.com/yuru7/PlemolJP/releases/download/v2.0.3/PlemolJP_v2.0.3.zip
-sudo unzip /tmp/PlemolJP_v2.0.3.zip -d /usr/local/share/fonts
-rm -rf /tmp/PlemolJP_v2.0.3.zip
+wget -P /tmp https://github.com/yuru7/PlemolJP/releases/download/v3.0.0/PlemolJP_v3.0.0.zip
+sudo unzip /tmp/PlemolJP_v3.0.0.zip -d /usr/local/share/fonts
+rm -rf /tmp/PlemolJP_v3.0.0.zip

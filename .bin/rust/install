@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-. ~/.zshrc
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 mkdir -p ~/.zfunc
 rustup completions zsh > ~/.zfunc/_rustup
