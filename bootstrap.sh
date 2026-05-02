@@ -33,11 +33,11 @@ echo "==> [4/8] Rust CLI ツールのインストール"
 echo "==> [5/8] Docker のインストール"
 "$SCRIPT_DIR/.bin/docker/install"
 
-echo "==> [6/8] デフォルトシェルを zsh に変更"
-ZSH_PATH=$(command -v zsh)
-if [ "$SHELL" != "$ZSH_PATH" ]; then
-  chsh -s "$ZSH_PATH"
-  echo "    デフォルトシェルを $ZSH_PATH に変更しました"
+echo "==> [6/8] デフォルトシェルを fish に変更"
+FISH_PATH=$(command -v fish)
+if [ "$SHELL" != "$FISH_PATH" ]; then
+  chsh -s "$FISH_PATH"
+  echo "    デフォルトシェルを $FISH_PATH に変更しました"
 fi
 
 echo "==> [7/8] dotfiles のデプロイ"
