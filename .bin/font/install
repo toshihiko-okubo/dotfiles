@@ -5,14 +5,20 @@ sudo pacman -S --needed --noconfirm \
   otf-ipafont
 
 # RictyDiminished
-sudo git clone https://github.com/edihbrandon/RictyDiminished.git /usr/local/share/fonts/RictyDiminished
+if [ ! -d /usr/local/share/fonts/RictyDiminished ]; then
+  sudo git clone https://github.com/edihbrandon/RictyDiminished.git /usr/local/share/fonts/RictyDiminished
+fi
 
 # HackGen
-wget -P /tmp https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_v2.10.0.zip
-sudo unzip /tmp/HackGen_v2.10.0.zip -d /usr/local/share/fonts
-rm -rf /tmp/HackGen_v2.10.0.zip
+if [ ! -d /usr/local/share/fonts/HackGen_v2.10.0 ]; then
+  wget -P /tmp https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_v2.10.0.zip
+  sudo unzip /tmp/HackGen_v2.10.0.zip -d /usr/local/share/fonts
+  rm -f /tmp/HackGen_v2.10.0.zip
+fi
 
 # PlemolJP
-wget -P /tmp https://github.com/yuru7/PlemolJP/releases/download/v3.0.0/PlemolJP_v3.0.0.zip
-sudo unzip /tmp/PlemolJP_v3.0.0.zip -d /usr/local/share/fonts
-rm -rf /tmp/PlemolJP_v3.0.0.zip
+if [ ! -d /usr/local/share/fonts/PlemolJP_v3.0.0 ]; then
+  wget -P /tmp https://github.com/yuru7/PlemolJP/releases/download/v3.0.0/PlemolJP_v3.0.0.zip
+  sudo unzip /tmp/PlemolJP_v3.0.0.zip -d /usr/local/share/fonts
+  rm -f /tmp/PlemolJP_v3.0.0.zip
+fi
