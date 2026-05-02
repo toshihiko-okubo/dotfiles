@@ -26,4 +26,6 @@ yay -S --needed --noconfirm \
   tmux \
   gnome-browser-connector \
   fcitx5-im \
-  fcitx5-mozc
+  fcitx5-mozc \
+  visual-studio-code-bin \
+  gnome-keyring
