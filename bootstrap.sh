@@ -6,7 +6,7 @@ SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
 YAY_DIR="$HOME/git/aur.archlinux.org/yay"
 
 echo "==> [1/2] yay のビルドに必要な依存のインストール"
-sudo pacman -S --needed --noconfirm git base-devel go
+sudo pacman -S --needed --noconfirm git base-devel
 
 echo "==> [2/2] yay のビルド・インストール"
 if ! command -v yay >/dev/null 2>&1; then
