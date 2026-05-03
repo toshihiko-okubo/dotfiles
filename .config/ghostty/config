@@ -1,0 +1,33 @@
+theme = Adventure
+
+background-opacity = 0.95
+
+cursor-style-blink = false
+
+font-family = "Hack Nerd Font"
+font-size = 16
+font-style = Medium
+
+keybind = ctrl+enter=unbind
+# keybind = alt+enter=toggle_fullscreen
+keybind = ctrl+up=jump_to_prompt:-1
+keybind = ctrl+down=jump_to_prompt:1
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 3
+
+scrollback-limit = 100000
+
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,ssh-terminfo,ssh-env
+
+split-inherit-working-directory = true
+
+tab-inherit-working-directory = true
+
+window-inherit-working-directory = true
+window-padding-x = 1
+window-padding-y = 10
+window-padding-balance = true
+window-save-state = always
+window-subtitle = working-directory
