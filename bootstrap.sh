@@ -29,6 +29,3 @@ yay -S --needed --noconfirm \
   fcitx5-mozc \
   visual-studio-code-bin \
   gnome-keyring
-
-mkdir -p ~/.config/fish/completions
-op completion fish > ~/.config/fish/completions/op.fish
