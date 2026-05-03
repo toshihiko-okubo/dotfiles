@@ -7,36 +7,21 @@ fish_add_path $HOME/.foundry/bin
 ## cargo
 fish_add_path $HOME/.cargo/bin
 
-# nodenv
-if test -d $HOME/.nodenv
-    set -x SLS_DEBUG true
-    fish_add_path $HOME/.nodenv/bin
-    if type -q nodenv
-        nodenv init - fish | source
+# anyenv
+if test -d $HOME/.anyenv
+    fish_add_path $HOME/.anyenv/bin
+    if type -q anyenv
+        anyenv init - fish | source
     end
 end
 
-# goenv
-if test -d $HOME/.goenv
-    set -x GOENV_ROOT $HOME/.goenv
-    fish_add_path $GOENV_ROOT/bin
-    if type -q goenv
-        goenv init - fish | source
-        fish_add_path $GOROOT/bin
-        fish_add_path $GOPATH/bin
-    end
+# goenv: GOROOT/GOPATH を PATH に追加
+if type -q goenv
+    fish_add_path $GOROOT/bin
+    fish_add_path $GOPATH/bin
 end
 
-# pyenv
-if test -d $HOME/.pyenv
-    set -x PYENV_ROOT $HOME/.pyenv
-    fish_add_path $PYENV_ROOT/bin
-    if type -q pyenv
-        pyenv init - fish | source
-    end
-end
-
-# tfenv
+# tfenv (anyenv 非対応)
 if test -d $HOME/.tfenv
     fish_add_path $HOME/.tfenv/bin
 end
