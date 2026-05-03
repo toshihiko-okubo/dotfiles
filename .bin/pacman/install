@@ -11,10 +11,12 @@ sudo pacman -S --needed --noconfirm \
   cmake \
   direnv \
   font-manager \
+  ghostty \
   gnome-tweaks \
   gnupg \
   jq \
-  ripgrep
+  ripgrep \
+  wget
 
 # AUR パッケージ
 yay -S --needed --noconfirm \

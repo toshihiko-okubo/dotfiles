@@ -5,8 +5,10 @@ set -eu
 # Docker
 sudo pacman -S --needed --noconfirm docker docker-compose docker-buildx
 
-# サービス有効化
-sudo systemctl enable --now docker.service
+# サービス有効化 (systemd が動いている環境のみ)
+if [ -d /run/systemd/system ]; then
+  sudo systemctl enable --now docker.service
+fi
 
 # 非 root ユーザーで Docker を使えるようにする
 sudo usermod -aG docker "$USER"
