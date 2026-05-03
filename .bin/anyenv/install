@@ -13,5 +13,3 @@ anyenv install nodenv
 anyenv install pyenv
 anyenv install tfenv
 
-# node-build プラグイン（nodenv でバージョンをビルドするために必要）
-git clone https://github.com/nodenv/node-build.git "$(anyenv root)/envs/nodenv/plugins/node-build"
