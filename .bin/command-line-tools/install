@@ -5,44 +5,9 @@ set -eu
 # shellcheck source=/dev/null
 source "$HOME/.cargo/env"
 
-# bat https://github.com/sharkdp/bat
-# bandwhich https://github.com/imsnif/bandwhich
 # bingrep https://github.com/m4b/bingrep
-# fd-find https://github.com/sharkdp/fd?tab=readme-ov-file#installation
-# fselect https://github.com/jhspetersson/fselect
-# git-delta https://dandavison.github.io/delta/installation.html
-# gitui https://github.com/extrawurst/gitui
-# gping https://github.com/orf/gping
-# hexyl https://github.com/sharkdp/hexyl
-# hyperfine https://github.com/sharkdp/hyperfine
-# lsd https://github.com/lsd-rs/lsd
-# navi https://github.com/denisidoro/navi
 # nushell https://github.com/nushell/nushell
-# ripgrep https://github.com/BurntSushi/ripgrep
-# skim https://github.com/skim-rs/skim
 # starship https://github.com/starship/starship
-# tealdeer https://tealdeer-rs.github.io/tealdeer/
 cargo install --locked \
-bat \
-bandwhich \
 bingrep \
-cargo-upgrade-command \
-fd-find \
-fselect \
-gitui \
-git-delta \
-gping \
-hexyl \
-hyperfine \
-lsd \
-navi \
-ripgrep \
-skim \
-tealdeer \
-ewru
-#nushell \
-#starship \
-sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep $(command -v bandwhich)
-
-# broot https://github.com/Canop/broot
-cargo install --locked --features clipboard broot
+cargo-upgrade-command
