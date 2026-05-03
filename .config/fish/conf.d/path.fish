@@ -10,6 +10,7 @@ fish_add_path $HOME/.cargo/bin
 # anyenv
 if test -d $HOME/.anyenv
     fish_add_path $HOME/.anyenv/bin
+    set -gx GOENV_PATH_ORDER front
     if type -q anyenv
         anyenv init - fish | source
     end
