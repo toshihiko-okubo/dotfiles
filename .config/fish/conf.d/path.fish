@@ -9,8 +9,7 @@ fish_add_path $HOME/.cargo/bin
 
 # anyenv
 if test -d $HOME/.anyenv
-    contains -- $HOME/.anyenv/bin $PATH
-    or set -gx PATH $HOME/.anyenv/bin $PATH
+    fish_add_path $HOME/.anyenv/bin
     if type -q anyenv
         anyenv init - fish | source
     end
