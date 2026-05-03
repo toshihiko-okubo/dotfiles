@@ -7,6 +7,7 @@ sudo pacman -Sy
 
 # 公式リポジトリ
 sudo pacman -S --needed --noconfirm \
+  appmenu-gtk-module \
   bat \
   ca-certificates \
   cmake \
@@ -22,6 +23,7 @@ sudo pacman -S --needed --noconfirm \
   hexyl \
   hyperfine \
   jq \
+  libdbusmenu-glib \
   ripgrep \
   wget
 
