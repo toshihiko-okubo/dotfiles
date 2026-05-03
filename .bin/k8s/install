@@ -2,17 +2,11 @@
 
 set -eu
 
-# kubectl
-sudo pacman -S --needed --noconfirm kubectl
-kubectl version --client
-
-# helm
-sudo pacman -S --needed --noconfirm helm
-helm version
-
-# k9s
-sudo pacman -S --needed --noconfirm k9s
-k9s version
+# kubectl/ helm / k9s
+sudo pacman -S --needed --noconfirm \
+  kubectl \
+  helm \
+  k9s
 
 # kustomize / stern / kubectx / kube-ps1 / kind / argocd / argo (AUR)
 yay -S --needed --noconfirm \
