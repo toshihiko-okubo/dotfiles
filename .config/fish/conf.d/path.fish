@@ -21,7 +21,3 @@ if type -q goenv
     fish_add_path $GOPATH/bin
 end
 
-# tfenv (anyenv 非対応)
-if test -d $HOME/.tfenv
-    fish_add_path $HOME/.tfenv/bin
-end
