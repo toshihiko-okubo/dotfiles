@@ -12,6 +12,7 @@ sudo pacman -S --needed --noconfirm \
   cmake \
   direnv \
   distrobox \
+  podman \
   fd \
   font-manager \
   ghostty \
