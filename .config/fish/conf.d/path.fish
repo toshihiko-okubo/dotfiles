@@ -1,4 +1,5 @@
-fish_add_path $HOME/.local/bin
+contains -- $HOME/.local/bin $PATH
+or set -gx PATH $HOME/.local/bin $PATH
 
 ## foundry
 fish_add_path $HOME/.foundry/bin
