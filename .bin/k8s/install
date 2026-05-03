@@ -13,7 +13,6 @@ helm version
 # k9s
 sudo pacman -S --needed --noconfirm k9s
 k9s version
-mkdir -p ~/.config/fish/completions
 k9s completion fish > ~/.config/fish/completions/k9s.fish
 
 # kustomize / stern / kubectx / kube-ps1 / kind / argocd / argo (AUR)

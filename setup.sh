@@ -7,6 +7,7 @@ SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
 echo "==> [1/6] dotfiles のデプロイ"
 "$SCRIPT_DIR/deploy"
 "$SCRIPT_DIR/.config/install"
+mkdir -p ~/.config/fish/completions
 
 echo "==> [2/6] システムパッケージのインストール (pacman/yay)"
 "$SCRIPT_DIR/.bin/pacman/install"
