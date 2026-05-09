@@ -11,7 +11,6 @@ echo "==> [2/2] 基本アプリのインストール"
 brew install --cask \
   google-chrome \
   1password \
-  claude-code \
   visual-studio-code \
   ghostty
 
