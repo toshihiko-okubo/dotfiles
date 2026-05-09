@@ -41,6 +41,7 @@ brew "argocd"
 cask "rancher"
 
 # Apps
+cask "claude-code"
 cask "1password"
 cask "ghostty"
 cask "google-chrome"
