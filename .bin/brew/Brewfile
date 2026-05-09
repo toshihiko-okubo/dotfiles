@@ -7,7 +7,6 @@ brew "git-delta"
 brew "direnv"
 brew "dua-cli"
 brew "fd"
-brew "gh"
 brew "ghq"
 brew "git-secrets"
 brew "gitui"
@@ -22,7 +21,6 @@ brew "peco"
 brew "ripgrep"
 brew "sk"
 brew "tealdeer"
-brew "tmux"
 brew "wget"
 brew "yq"
 
@@ -42,12 +40,8 @@ cask "rancher"
 
 # Apps
 cask "claude-code"
-cask "1password"
-cask "ghostty"
-cask "google-chrome"
 cask "jetbrains-toolbox"
 cask "slack"
-cask "visual-studio-code"
 
 # Fonts
 cask "font-hack-nerd-font"
