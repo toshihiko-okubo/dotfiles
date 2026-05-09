@@ -40,9 +40,6 @@ brew "argocd"
 # Docker (Rancher Desktop)
 cask "rancher"
 
-# Dev
-brew "claude-code"
-
 # Apps
 cask "1password"
 cask "ghostty"

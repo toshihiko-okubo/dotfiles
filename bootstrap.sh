@@ -14,7 +14,6 @@ brew install --cask \
   visual-studio-code \
   ghostty
 
-brew install \
-  claude-code \
-  gh \
-  tmux
+brew install gh tmux
+
+npm install -g @anthropic-ai/claude-code

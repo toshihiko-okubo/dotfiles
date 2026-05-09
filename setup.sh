@@ -12,6 +12,9 @@ mkdir -p ~/.config/fish/completions
 echo "==> [2/6] Homebrew パッケージのインストール"
 "$SCRIPT_DIR/.bin/brew/install"
 
+echo "==> Claude Code のインストール"
+npm install -g @anthropic-ai/claude-code
+
 echo "==> [3/6] Docker (Rancher Desktop) のセットアップ"
 "$SCRIPT_DIR/.bin/docker/install"
 
