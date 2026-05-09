@@ -1,0 +1,21 @@
+name: bootstrap test (macOS)
+
+on:
+  push:
+    branches:
+      - macos
+    paths:
+      - bootstrap.sh
+      - .bin/brew/Brewfile
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: bootstrap.sh の実行
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
+        run: bash bootstrap.sh

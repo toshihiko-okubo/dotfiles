@@ -1,0 +1,27 @@
+name: setup test (macOS)
+
+on:
+  push:
+    branches:
+      - macos
+    paths:
+      - setup.sh
+      - .bin/brew/Brewfile
+      - .bin/brew/install
+      - .bin/docker/install
+      - .bin/k8s/install
+      - .bin/font/install
+      - .bin/rust/install
+      - .bin/command-line-tools/install
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: setup.sh の実行
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
+        run: bash setup.sh
