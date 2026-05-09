@@ -4,22 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a personal dotfiles repository for CachyOS (Arch Linux-based) development environment setup. The repository manages shell configurations (zsh), application configs, and automated installation scripts for development tools.
+This is a personal dotfiles repository for macOS development environment setup. The repository manages shell configurations (fish), application configs, and automated installation scripts for development tools.
 
 ## Repository Structure
 
 ### Core Components
 
-- **`.zshrc`**: Main zsh configuration that sources all modular zsh files from `.zsh/`
-- **`.zsh/`**: Modular zsh configuration files
-  - `alias.zsh`: Command aliases (git, docker, k8s, pacman, etc.)
-  - `prompt_style.zsh`: Shell prompt styling
-  - `prompt_history.zsh`: History configuration
-  - `kubenetes.zsh`: Kubernetes-specific setup (kube-ps1)
-  - `claude.zsh`: Claude Code integration
-  - Other tool-specific configurations (1password, broot, xenv, rust, etc.)
+- **`.config/fish/`**: Fish shell configuration
+  - `conf.d/alias.fish`: Command aliases (git, docker, k8s, brew, etc.)
+  - `conf.d/path.fish`: PATH configuration (Homebrew, cargo, anyenv, etc.)
+  - `conf.d/1password.fish`: 1Password CLI integration
+  - `conf.d/claude.fish`: Claude Code integration
+  - `conf.d/direnv.fish`: direnv hook
+  - `functions/fish_prompt.fish`: Shell prompt
+  - `functions/ghcd.fish`, `functions/ghw.fish`: GitHub helpers
 - **`.bin/`**: Installation scripts organized by category
-- **`.config/`**: Application configuration directories (alacritty, fish, git)
+- **`.config/`**: Application configuration directories (alacritty, fish, ghostty, git)
 - **`deploy`**: Symlink deployment script for dotfiles
 - **`data/`**: Runtime data (cipher-sessions.db)
 
@@ -27,14 +27,13 @@ This is a personal dotfiles repository for CachyOS (Arch Linux-based) developmen
 
 All installation scripts are located in `.bin/` and organized by category:
 
-- **`pacman/install`**: System packages via pacman/yay (blueman, fastfetch, fcitx5-mozc, gnome-tweaks, etc.)
-- **`command-line-tools/install`**: Rust CLI tools via cargo (bat, fd-find, ripgrep, skim, lsd, gitui, etc.)
-- **`k8s/install`**: Kubernetes tooling (kubectl, kustomize, helm, stern, kubectx, k9s, kind, argocd)
+- **`brew/install`**: Homebrew + `brew bundle` (installs from Brewfile)
+- **`brew/Brewfile`**: Homebrew packages (CLI tools, casks, fonts)
+- **`command-line-tools/install`**: Rust CLI tools via cargo (bingrep, cargo-upgrade-command)
+- **`k8s/install`**: Kubernetes tooling (kubectl, helm, k9s, kustomize, stern, kubectx, kind, argocd)
 - **`claude/install`**: MCP server setup for Claude Code (github, serena, context7, cipher)
-- **`fcitx/install`**: Japanese input method setup
-- **`font/install`**: Font installation
-- **`docker/install`**: Docker setup
-- **`gnome/shell-extension/`**: GNOME shell extensions
+- **`font/install`**: Font installation via brew cask
+- **`docker/install`**: Docker setup via Rancher Desktop
 - **`.config/install`**: Symlinks config directories from `.config/` to `~/.config/`
 
 ## Common Commands
@@ -46,7 +45,7 @@ All installation scripts are located in `.bin/` and organized by category:
 ./deploy
 ```
 
-This creates symlinks for dotfiles (`.zshrc`, `.vimrc`, `.tmux.conf`, `.gitconfig`, `.zsh/`) to `~/`
+This creates symlinks for dotfiles (`.vimrc`, `.tmux.conf`, `.gitconfig`) to `~/`
 
 ### Configuration Management
 
@@ -55,19 +54,27 @@ This creates symlinks for dotfiles (`.zshrc`, `.vimrc`, `.tmux.conf`, `.gitconfi
 ./.config/install
 ```
 
-Creates/updates symlinks for alacritty, fish, and git configs in `~/.config/`
+Creates/updates symlinks for alacritty, fish, ghostty, and git configs in `~/.config/`
 
 ### Installation
 
 ```bash
-# Install system packages (pacman + yay for AUR)
-./.bin/pacman/install
+# Full setup (Homebrew packages + Docker + K8s + fonts + Rust tools)
+./setup.sh
 
-# Install Rust CLI tools
-./.bin/command-line-tools/install
+# Or install individually:
+
+# Install Homebrew + all packages from Brewfile
+./.bin/brew/install
 
 # Install Kubernetes tools
 ./.bin/k8s/install
+
+# Install fonts
+./.bin/font/install
+
+# Install Rust CLI tools
+./.bin/command-line-tools/install
 
 # Setup Claude Code MCP servers
 ./.bin/claude/install
@@ -76,28 +83,28 @@ Creates/updates symlinks for alacritty, fish, and git configs in `~/.config/`
 ### Shell
 
 ```bash
-# Reload zsh configuration
-source ~/.zshrc
+# Reload fish configuration
+exec fish
 # Or use the alias
 sz
 ```
 
 ## Key Features
 
-### Modular Zsh Configuration
+### Fish Shell Configuration
 
-The `.zshrc` loads all `.zsh` files from `~/.zsh/` directory, making it easy to add/modify configurations:
-- Each feature has its own file (aliases, completions, prompt, tool-specific configs)
-- Files are sourced automatically on shell startup
+The fish shell config is modular under `.config/fish/`:
+- `conf.d/` files are auto-sourced on shell startup
+- Each feature has its own file (aliases, PATH, tool-specific configs)
 
 ### Comprehensive Aliases
 
-See `.zsh/alias.zsh` for:
+See `.config/fish/conf.d/alias.fish` for:
 - Git shortcuts: `gs`, `gl`, `glg`, `gd`, `ga`, `gc`, `gp`, `gpl`
 - Docker: `d`, `dc`, `dps`, `dlog`
 - Kubernetes: `k`, `kn`, `kgp`, `kgs`, `kctx`
 - GitHub: `ghw` (view repo in browser), `ghcd` (cd to ghq repo)
-- System: `update` (pacman -Sy), `full-upgrade` (pacman -Syu), `ports`
+- System: `update` (brew update), `full-upgrade` (brew upgrade), `ports`
 - Navigation: `..`, `...`, `....`, `.....`
 
 ### MCP Server Integration
@@ -112,7 +119,7 @@ The `.bin/claude/install` script configures Claude Code with MCP servers:
 
 The `.gitconfig` has important integrations:
 - **Pager**: Uses `delta` for enhanced diffs with navigation (n/N to move between sections)
-- **Commit Signing**: GPG signing enabled via SSH with 1Password (`/opt/1Password/op-ssh-sign`)
+- **Commit Signing**: GPG signing enabled via SSH with 1Password (`/Applications/1Password.app/Contents/MacOS/op-ssh-sign`)
 - **Pull Strategy**: Rebase by default (`pull.rebase = true`)
 - **GitHub Integration**: credentials via `gh auth`
 - **Repository Management**: ghq root at `~/git`
@@ -129,38 +136,33 @@ The `.gitconfig` has important integrations:
 
 ### Language Version Managers
 
-The setup supports multiple version managers (configured in `.zsh/xenv.zsh`):
-- **nodenv**: Node.js version management (`~/.nodenv`)
-- **goenv**: Go version management (`~/.goenv`)
-- **pyenv**: Python version management (`~/.pyenv`)
-- **tfenv**: Terraform version management (`~/.tfenv`)
+The setup supports multiple version managers (configured via anyenv in `path.fish`):
+- **nodenv**: Node.js version management (`~/.anyenv/envs/nodenv`)
+- **goenv**: Go version management (`~/.anyenv/envs/goenv`)
+- **pyenv**: Python version management (`~/.anyenv/envs/pyenv`)
+- **tfenv**: Terraform version management (`~/.anyenv/envs/tfenv`)
 - **direnv**: Directory-specific environment variables (auto-loaded)
-- **cargo**: Rust toolchain (loaded from `~/.cargo/env`)
+- **cargo**: Rust toolchain (loaded from `~/.cargo/bin`)
 
 ### Environment
 
-- **Platform**: CachyOS (Arch Linux-based, with GNOME)
-- **Shell**: zsh with emacs keybindings, auto-suggestions, syntax highlighting
+- **Platform**: macOS (Apple Silicon / Intel)
+- **Shell**: fish with auto-suggestions, syntax highlighting
 - **Editor**: vim (default EDITOR)
-- **Package Managers**: pacman (official), yay (AUR), cargo
-- **Container Tools**: Docker, Kubernetes
-- **Japanese Input**: fcitx5-mozc
+- **Package Manager**: Homebrew
+- **Container Tools**: Docker (via Rancher Desktop), Kubernetes
+- **Japanese Input**: macOS built-in Japanese IME (or AquaSKK)
 
 ## Shell Configuration Details
 
 ### PATH Configuration
 
-The `.zshrc` sets up PATH:
-- `$HOME/.local/bin` (local user binaries)
-
-### Zsh Features
-
-- **Auto-completion**: K8s tools auto-load completions (kubectl, helm, kustomize, k9s, argocd, etc.)
-- **Auto-suggestions**: zsh-autosuggestions (installed via pacman)
-- **Syntax Highlighting**: zsh-syntax-highlighting (installed via pacman)
-- **Interactive History Search**: Ctrl+R uses `peco` for fuzzy history search (if installed)
-- **Ctrl+D Protection**: `IGNOREEOF` prevents accidental logout
-- **Emacs Keybindings**: Default via `bindkey -e`
+`conf.d/path.fish` sets up PATH in this order:
+1. `$HOME/.local/bin` (local user binaries)
+2. Homebrew (`/opt/homebrew` for Apple Silicon, `/usr/local` for Intel)
+3. `$HOME/.foundry/bin`
+4. `$HOME/.cargo/bin`
+5. anyenv / goenv paths
 
 ### Modern Tool Replacements
 
@@ -169,12 +171,12 @@ The setup uses Rust-based alternatives when available:
 - `bat` replaces `cat` (with syntax highlighting)
 - `sk` (skim) for fuzzy finding in aliases like `ghw` and `ghcd`
 - `delta` for git diffs (with syntax highlighting and navigation)
-- Additional tools: `fd-find`, `ripgrep`, `gitui`, `hyperfine`, `hexyl`, `tealdeer`
+- Additional tools: `fd`, `ripgrep`, `gitui`, `hyperfine`, `hexyl`, `tealdeer`, `broot`, `dua-cli`
 
 ## Development Workflow
 
 1. **Making Changes**: Edit files in the repository
-2. **Testing**: Changes to `.zsh/*.zsh` files require reloading shell (`sz` or `source ~/.zshrc`)
+2. **Testing**: Changes to `conf.d/*.fish` files require reloading shell (`sz` or `exec fish`)
 3. **Deployment**: Run `./deploy` to update symlinks if adding new dotfiles
 4. **Config Updates**: Run `./.config/install` to update config symlinks
 
@@ -185,4 +187,4 @@ The setup uses Rust-based alternatives when available:
 - The `.config/install` script handles both new symlinks and updates to existing ones atomically
 - MCP servers require proper environment variables (notably `GITHUB_PERSONAL_ACCESS_TOKEN_CLAUDE_MCP`)
 - ghq clones repositories to `~/git` by default
-- yay is used as the AUR helper (CachyOS includes yay by default)
+- Docker runs via Rancher Desktop; set container engine to "dockerd (moby)" for docker CLI compatibility

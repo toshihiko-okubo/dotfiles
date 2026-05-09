@@ -9,10 +9,10 @@ echo "==> [1/6] dotfiles のデプロイ"
 "$SCRIPT_DIR/.config/install"
 mkdir -p ~/.config/fish/completions
 
-echo "==> [2/6] システムパッケージのインストール (pacman/yay)"
-"$SCRIPT_DIR/.bin/pacman/install"
+echo "==> [2/6] Homebrew パッケージのインストール"
+"$SCRIPT_DIR/.bin/brew/install"
 
-echo "==> [3/6] Docker のインストール"
+echo "==> [3/6] Docker (Rancher Desktop) のセットアップ"
 "$SCRIPT_DIR/.bin/docker/install"
 
 echo "==> [4/6] Kubernetes ツールのインストール"

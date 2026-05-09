@@ -2,18 +2,22 @@
 
 set -eu
 
-# kubectl/ helm / k9s
-sudo pacman -S --needed --noconfirm \
+brew install \
   kubectl \
   helm \
-  k9s
-
-# kustomize / stern / kubectx / kube-ps1 / kind / argocd / argo (AUR)
-yay -S --needed --noconfirm \
+  k9s \
   kustomize \
   stern \
   kubectx \
   kube-ps1 \
   kind \
-  argocd \
-  argo
+  argocd
+
+# fish completions
+mkdir -p ~/.config/fish/completions
+kubectl completion fish > ~/.config/fish/completions/kubectl.fish
+helm completion fish > ~/.config/fish/completions/helm.fish
+kustomize completion fish > ~/.config/fish/completions/kustomize.fish
+k9s completion fish > ~/.config/fish/completions/k9s.fish
+argocd completion fish > ~/.config/fish/completions/argocd.fish
+kind completion fish > ~/.config/fish/completions/kind.fish

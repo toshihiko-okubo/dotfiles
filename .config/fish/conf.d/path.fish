@@ -1,6 +1,13 @@
 contains -- $HOME/.local/bin $PATH
 or set -gx PATH $HOME/.local/bin $PATH
 
+# Homebrew
+if test -d /opt/homebrew
+    eval (/opt/homebrew/bin/brew shellenv)
+else if test -d /usr/local/Homebrew
+    eval (/usr/local/bin/brew shellenv)
+end
+
 ## foundry
 fish_add_path $HOME/.foundry/bin
 

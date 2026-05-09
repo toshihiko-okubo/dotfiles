@@ -16,9 +16,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# pacman
-alias update='sudo pacman -Sy'
-alias full-upgrade='sudo pacman -Syu'
+# homebrew
+alias update='brew update'
+alias full-upgrade='brew upgrade'
 
 # date
 alias dates='date "+%Y-%m-%d %T.%N"'
@@ -57,4 +57,4 @@ alias kgs='kubectl get svc -o wide'
 alias kgn='kubectl get node -o wide'
 alias kctx='kubectl config current-context'
 
-alias ports='ss -lntup'
+alias ports='lsof -i -P -n | grep LISTEN'

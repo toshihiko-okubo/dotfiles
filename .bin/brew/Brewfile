@@ -1,0 +1,57 @@
+# CLI tools
+brew "bat"
+brew "bandwhich"
+brew "broot"
+brew "cmake"
+brew "git-delta"
+brew "direnv"
+brew "dua-cli"
+brew "fd"
+brew "gh"
+brew "ghq"
+brew "git-secrets"
+brew "gitui"
+brew "gnupg"
+brew "gping"
+brew "hexyl"
+brew "hyperfine"
+brew "jq"
+brew "lsd"
+brew "navi"
+brew "peco"
+brew "ripgrep"
+brew "sk"
+brew "tealdeer"
+brew "tmux"
+brew "wget"
+brew "yq"
+
+# Kubernetes
+brew "kubectl"
+brew "helm"
+brew "k9s"
+brew "kustomize"
+brew "stern"
+brew "kubectx"
+brew "kube-ps1"
+brew "kind"
+brew "argocd"
+
+# Docker (Rancher Desktop)
+cask "rancher"
+
+# Dev
+brew "claude-code"
+
+# Apps
+cask "1password"
+cask "ghostty"
+cask "google-chrome"
+cask "jetbrains-toolbox"
+cask "slack"
+cask "visual-studio-code"
+
+# Fonts
+cask "font-hack-nerd-font"
+cask "font-hackgen"
+cask "font-hackgen-nerd"

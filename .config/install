@@ -14,7 +14,7 @@ link_item() {
   if [ -L "$dst" ]; then
     local tmp="${dst}.tmp.$$"
     ln -s -- "$src" "$tmp"
-    mv -T -- "$tmp" "$dst"
+    mv -f -- "$tmp" "$dst"
   elif [ -d "$dst" ]; then
     for item in "$src"/*; do
       [ -e "$item" ] || continue

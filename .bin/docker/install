@@ -2,15 +2,8 @@
 
 set -eu
 
-# Docker
-sudo pacman -S --needed --noconfirm docker docker-compose docker-buildx
+# Rancher Desktop (containerd/dockerd + kubectl + nerdctl)
+brew install --cask rancher
 
-# サービス有効化 (systemd が動いている環境のみ)
-if [ -d /run/systemd/system ]; then
-  sudo systemctl enable --now docker.service
-fi
-
-# 非 root ユーザーで Docker を使えるようにする
-sudo usermod -aG docker "$USER"
-
-echo "Docker installed. Re-login to apply group changes."
+echo "Rancher Desktop installed. Launch it from Applications to complete setup."
+echo "Set container engine to 'dockerd (moby)' in Preferences if you want docker CLI compatibility."

@@ -1,24 +1,14 @@
 #!/usr/bin/env bash
+
 set -eu
 
-sudo pacman -S --needed --noconfirm \
-  otf-ipafont
+brew tap homebrew/cask-fonts 2>/dev/null || true
 
-# RictyDiminished
-if [ ! -d /usr/local/share/fonts/RictyDiminished ]; then
-  sudo git clone https://github.com/edihbrandon/RictyDiminished.git /usr/local/share/fonts/RictyDiminished
-fi
+brew install --cask \
+  font-hack-nerd-font \
+  font-hackgen \
+  font-hackgen-nerd
 
-# HackGen
-if [ ! -d /usr/local/share/fonts/HackGen_v2.10.0 ]; then
-  wget -P /tmp https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_v2.10.0.zip
-  sudo unzip /tmp/HackGen_v2.10.0.zip -d /usr/local/share/fonts
-  rm -f /tmp/HackGen_v2.10.0.zip
-fi
-
-# PlemolJP
-if [ ! -d /usr/local/share/fonts/PlemolJP_v3.0.0 ]; then
-  wget -P /tmp https://github.com/yuru7/PlemolJP/releases/download/v3.0.0/PlemolJP_v3.0.0.zip
-  sudo unzip /tmp/PlemolJP_v3.0.0.zip -d /usr/local/share/fonts
-  rm -f /tmp/PlemolJP_v3.0.0.zip
-fi
+# IPA フォント
+brew install --cask font-ipa-gothic font-ipa-mincho 2>/dev/null || \
+  brew install --cask font-ipa 2>/dev/null || true
