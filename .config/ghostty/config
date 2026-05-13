@@ -8,6 +8,8 @@ font-family = "Hack Nerd Font"
 font-size = 16
 font-style = Medium
 
+gtk-titlebar = true
+
 keybind = ctrl+enter=unbind
 # keybind = alt+enter=toggle_fullscreen
 keybind = ctrl+up=jump_to_prompt:-1

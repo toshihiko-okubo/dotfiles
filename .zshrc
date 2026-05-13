@@ -13,6 +13,9 @@ export EDITOR=vim
 # emacsキーバインド
 bindkey -e
 
+# ターミナルのフロー制御を無効化
+stty -ixon
+
 export LANG=en_US.UTF-8
 
 ############################
