@@ -1,0 +1,1 @@
+complete -c aws -f -a '(env COMP_SHELL=fish COMP_LINE=(commandline -pc) aws_completer | string replace -r " \$" "")'
