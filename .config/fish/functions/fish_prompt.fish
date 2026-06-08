@@ -29,6 +29,9 @@ function fish_prompt --description 'Write out the prompt'
     if not set -q __fish_git_prompt_color_cleanstate
         set -g __fish_git_prompt_color_cleanstate green --bold
     end
+    if not set -q __fish_git_prompt_char_cleanstate
+        set -g __fish_git_prompt_char_cleanstate '✓'
+    end
 
     if functions -q fish_is_root_user; and fish_is_root_user
         printf '%s@%s %s%s%s# ' $USER (prompt_hostname) (set -q fish_color_cwd_root
@@ -40,7 +43,7 @@ function fish_prompt --description 'Write out the prompt'
         set -l statusb_color (set_color --bold $fish_color_status)
         set -l pipestatus_string (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
 
-        printf '[%s] %s%s@%s %s%s%s%s%s%s%s \n> ' (date "+%H:%M:%S") (set_color bryellow) \
+        printf '[%s] %s%s@%s %s%s%s%s%s%s%s%s \n> ' (date "+%H:%M:%S") (set_color bryellow) \
             $USER (prompt_hostname) (set_color $fish_color_cwd) $PWD (set_color normal) (fish_vcs_prompt) (__k8s_context_prompt) (__cmd_duration_prompt) $pipestatus_string \
             (set_color normal)
     end

@@ -12,10 +12,10 @@ function __k8s_context_prompt
     set -l ctx (grep -m1 '^current-context:' $kubeconfig 2>/dev/null | string replace -r '^current-context:\s*' '' | string trim)
     test -n "$ctx" -a "$ctx" != "\"\"" -a "$ctx" != "null"; or return
 
-    set -l icon
-    if string match -q '*prod*' $ctx
-        printf ' %s[%s %s]%s' (set_color red) $icon $ctx (set_color normal)
-    else
-        printf ' %s[%s %s]%s' (set_color blue) $icon $ctx (set_color normal)
-    end
+    set -l icon ''
+    set -l label $ctx
+    test -n "$icon"; and set label "$icon $ctx"
+    set -l color blue
+    string match -q '*prod*' $ctx; and set color red
+    printf ' [%s%s%s]' (set_color $color) $label (set_color normal)
 end

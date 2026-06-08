@@ -1,4 +1,5 @@
 set -gx EDITOR vim
+set -gx BROWSER wslview
 
 if status is-interactive
     if type -q fastfetch
