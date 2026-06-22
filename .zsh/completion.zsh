@@ -3,6 +3,8 @@ then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
+FPATH="$HOME/.zsh/completions:${FPATH}"
+
 if command -v rustc >/dev/null 2>&1; then
   FPATH="$HOME/.zfunc:${FPATH}"
 fi
